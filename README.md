@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# IROHA — 一般社団法人IROHA 公式サイト
+
+> Nurture Words and Ears. Open your stories.
+
+Static company website for [一般社団法人IROHA](https://iroha.example.com), built with Next.js 16, TypeScript, and Tailwind CSS v4.
+
+## Overview
+
+IROHA is an organization dedicated to nurturing language and listening through three pillars:
+
+- **言語教育** — Japanese language learning via the [Shirimono](https://shirimono.fun) app
+- **記憶の継承** — Life story and family history preservation via *Your History*
+- **語りの場づくり** — Creating spaces for meaningful dialogue and encounter
+
+## Tech Stack
+
+| | |
+|---|---|
+| Framework | Next.js 16 (App Router) |
+| Language | TypeScript |
+| Styling | Tailwind CSS v4 |
+| Output | Static export (`out/`) |
+| Fonts | Noto Sans JP, Inter |
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── layout.tsx          # Root layout & metadata
+│   ├── page.tsx            # Home page
+│   ├── globals.css         # Design tokens & blob animations
+│   └── news/[slug]/        # Static news post pages
+├── components/
+│   ├── Header.tsx          # Fixed nav with mobile hamburger
+│   ├── Hero.tsx            # Full-screen hero with floating blobs
+│   ├── About.tsx           # Organization introduction
+│   ├── ServicesSection.tsx # Services overview
+│   ├── ServiceCard.tsx     # Individual service card
+│   ├── ImageCarousel.tsx   # Image carousel for Shirimono
+│   ├── NewsSection.tsx     # News grid
+│   ├── CEOMessage.tsx      # Representative's message
+│   ├── Footer.tsx          # Footer with nav & social links
+│   └── Blob.tsx            # Reusable organic blob shape
+└── data/
+    ├── services.ts         # Service definitions
+    └── news.ts             # News post data
+```
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build & Export
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+Produces a fully static site in the `out/` directory, ready to deploy on any static host (Netlify, GitHub Pages, S3, etc.).
 
-To learn more about Next.js, take a look at the following resources:
+## Adding Content
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**New service:** edit `src/data/services.ts`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**New news post:** add an entry to `src/data/news.ts` — the page at `/news/[slug]` is generated automatically at build time.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Highlight text in green:** wrap words with `**double asterisks**` in the `description` field.
