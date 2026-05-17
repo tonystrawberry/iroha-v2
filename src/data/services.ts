@@ -6,6 +6,7 @@ export type Service = {
   description: string;
   link: string;
   appStoreLink?: string;
+  hideTitleLogo?: boolean;
   image?: string;
   images?: string[];
   mockupBg: string;
@@ -37,11 +38,12 @@ export const services: Service[] = [
   {
     id: "your-hintory",
     name: "Your History",
-    nameJa: "自伝・家族史作成サービス",
-    subtitle: "Your History",
+    nameJa: "紡ぐ書房",
+    subtitle: "あなたの言葉を聴き、家族へ繋ぐ人生の書を仕立てます",
     description:
-      "個人の**ライフストーリーの聞き取り**と**家族史の調査**によって**１冊の本**にまとめて提供するサービスです。\nご自身の**人生の振り返り**や、家族への**記憶の継承**を目的としてご利用いただいています。\n\n家族として長年同居していても「親」や「祖父母」という肩書きを外した**個人としての人生**は案外深く知らないことが多いです。\nYour Historyのサービスを通して自分自身や家族と**「出会いなおし」**をしてみませんか。",
+      "個人の**ライフストーリーの聴き取り**と**家族史の調査**によって**１冊の本**にまとめて提供するサービスです。\nご自身の**人生の振り返り**や、家族への**記憶の継承**を目的としてご利用いただいています。\n\n家族として長年同居していても「親」や「祖父母」という肩書きを外した**個人としての人生**は案外深く知らないことが多いです。\n紡ぐ書房のサービスを通して自分自身や家族と**「出会いなおし」**をしてみませんか。",
     link: "",
+    hideTitleLogo: true,
     image: "/service/your-history.png",
     mockupBg: "bg-peach",
     reverse: true,

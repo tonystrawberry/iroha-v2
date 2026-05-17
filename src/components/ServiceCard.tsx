@@ -38,14 +38,14 @@ export default function ServiceCard({ service }: Props) {
       {/* Text side */}
       <div className="flex-1 max-w-lg">
         <div className="flex items-center gap-3 mb-4">
-          {service.image && (
+          {service.image && !service.hideTitleLogo && (
             <img
               src={service.image}
               alt={service.subtitle}
               className="w-12 h-12 rounded-xl object-cover"
             />
           )}
-          <h3 className="text-2xl md:text-3xl font-bold text-foreground leading-snug">
+          <h3 className="text-2xl md:text-3xl font-bold text-foreground leading-snug whitespace-pre-line">
             {service.nameJa}<br />{service.subtitle}
           </h3>
         </div>
@@ -84,7 +84,11 @@ export default function ServiceCard({ service }: Props) {
       {/* Mockup side */}
       <div className="flex-1 flex justify-center">
         <div
-          className="relative w-64 md:w-80 rounded-2xl flex items-center justify-center overflow-visible py-8 px-6"
+          className={`relative w-64 md:w-80 rounded-2xl flex items-center justify-center ${
+            !service.images && service.image
+              ? "overflow-hidden"
+              : "overflow-visible py-8 px-6"
+          }`}
           style={{ background: mockupColors[service.mockupBg] ?? mockupColors["bg-mint"] }}
         >
           {service.images ? (
@@ -93,7 +97,7 @@ export default function ServiceCard({ service }: Props) {
             <img
               src={service.image}
               alt={service.subtitle}
-              className="w-56 md:w-64 object-contain"
+              className="w-full aspect-[4/5] object-cover"
             />
           ) : (
             /* Book mockup */
